@@ -1,5 +1,7 @@
 <template>
-    <div>
+    <div class="wrapper">
+      <input type="text" name="search" v-model="searchText">
+      <button @click="query()" >Cerca</button>
       <h1>Risultati</h1>
       <ol>
         <li v-for="item in output" :key="item.id">
@@ -20,11 +22,12 @@
   export default {
     data() {
       return {
-        output : []
+        output : [],
+        searchText : ''
       }
     },methods: {
       query() {
-        axios.get('https://api.themoviedb.org/3/search/movie?api_key=fd496a5d9593ae9ca1b97ac4b05d38cf&query=ritorno al futuro')
+        axios.get('https://api.themoviedb.org/3/search/movie?api_key=fd496a5d9593ae9ca1b97ac4b05d38cf&query='+this.searchText)
           .then( (response) => {
             console.log(response);
             this.output = response.data.results;
@@ -33,10 +36,10 @@
             console.log('ERROR');
             console.log(error);
           })
+        this.searchText = '';
       }
     },
     created () {
-      this.query();
     },
   }
 </script>
@@ -46,5 +49,9 @@
 
   ol>li {
     margin: 1rem 0;
+  }
+
+  div.wrapper {
+    margin: 2rem;
   }
 </style>
