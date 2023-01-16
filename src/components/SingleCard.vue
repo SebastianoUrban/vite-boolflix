@@ -1,11 +1,15 @@
 <template>
   <div>
-    <img :src="backdropImage()" alt="">
+    <img class="backdrop" :src="backdropImage()" alt="">
     <ul>
       <li>Titolo: {{ store.results[index].title }}</li>
       <li>Titolo originale: {{ store.results[index].originalTitle }}</li>
       <li>Lingua originale: {{ store.results[index].language }} <img class="flag" :src="getFlag(store.results[index].language)" alt=""></li>
-      <li>Voto medio: {{ store.results[index].rateing }} <i class="fa-solid fa-star"></i> </li>
+      <li>
+        Voto medio: 
+        <i class="fa-solid fa-star" v-for="i in store.results[index].rateing"></i>
+        <i class="fa-regular fa-star" v-for="i in (5 - store.results[index].rateing)"></i> 
+      </li>
       <li>url: {{ store.results[index].backdropPath }}</li>
       <li>type: {{ store.results[index].type }}</li>
     </ul>
@@ -44,7 +48,7 @@
 </script>
 
 <style lang="scss" scoped>
-  img {
+  img.backdrop {
     width: 300px;
   }
 </style>
