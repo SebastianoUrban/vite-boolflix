@@ -25,7 +25,7 @@
                 title : film.title,
                 originalTitle : film.original_title,
                 language : film.original_language,
-                rateing : film.vote_average,
+                rateing : Math.ceil(film.vote_average / 2),
                 backdropPath : film.backdrop_path,
                 type : 'film'
               });
@@ -45,7 +45,7 @@
                 title : tv.name,
                 originalTitle : tv.original_name,
                 language : tv.original_language,
-                rateing : tv.vote_average,
+                rateing : Math.ceil(film.vote_average / 2),
                 backdropPath : tv.backdrop_path,
                 type : 'tv'
               });

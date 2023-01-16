@@ -1,11 +1,11 @@
 <template>
   <div>
-    <img :src="'https://image.tmdb.org/t/p/w300'+store.results[index].backdropPath" alt="">
+    <img :src="backdropImage()" alt="">
     <ul>
       <li>Titolo: {{ store.results[index].title }}</li>
       <li>Titolo originale: {{ store.results[index].originalTitle }}</li>
       <li>Lingua originale: {{ store.results[index].language }} <img class="flag" :src="getFlag(store.results[index].language)" alt=""></li>
-      <li>Voto medio: {{ store.results[index].rateing }}</li>
+      <li>Voto medio: {{ store.results[index].rateing }} <i class="fa-solid fa-star"></i> </li>
       <li>url: {{ store.results[index].backdropPath }}</li>
       <li>type: {{ store.results[index].type }}</li>
     </ul>
@@ -28,6 +28,13 @@
         } else {
           return store.flags.xx
         }
+      },
+      backdropImage () {
+        if (store.results[this.index].backdropPath != null) { 
+          return 'https://image.tmdb.org/t/p/w300' + store.results[this.index].backdropPath
+        } else {
+          return 'https://variety.com/wp-content/uploads/2013/10/film-placeholder.jpg'
+        }
       }
     },
     props: {
@@ -37,5 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+  img {
+    width: 300px;
+  }
 </style>
