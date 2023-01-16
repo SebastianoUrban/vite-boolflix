@@ -4,7 +4,7 @@
       <button @click="query()" >Cerca</button>
       <h1>Risultati</h1>
       <ol>
-        <li v-for="item in output" :key="item.id">
+        <li v-for="item in store.results" :key="item.id">
           <ul>
             <li>Titolo: {{ item.title }}</li>
             <li>Titolo originale: {{ item.original_title }}</li>
@@ -18,11 +18,12 @@
 
 <script>
   import axios from 'axios';
+  import { store } from './store.js';
 
   export default {
     data() {
       return {
-        output : [],
+        store,
         searchText : ''
       }
     },methods: {
@@ -30,7 +31,7 @@
         axios.get('https://api.themoviedb.org/3/search/movie?api_key=fd496a5d9593ae9ca1b97ac4b05d38cf&query='+this.searchText)
           .then( (response) => {
             console.log(response);
-            this.output = response.data.results;
+            store.results = response.data.results;
           })
           .catch( (error) => {
             console.log('ERROR');
@@ -45,6 +46,8 @@
 </script>
 
 <style lang="scss">
+  @use './style/general.scss' as *;
+  @use './style/variables.scss' as * ;
   @import "/node_modules/bootstrap/scss/bootstrap";
 
   ol>li {
