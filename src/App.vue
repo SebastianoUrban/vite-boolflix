@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="m-5">
       <AppHeader/>
       <AppMain/>
     </div>
@@ -31,7 +31,4 @@
   @use 'bootstrap/scss/bootstrap.scss' as *;
 
 
-  div.wrapper {
-    margin: 2rem;
-  }
 </style>

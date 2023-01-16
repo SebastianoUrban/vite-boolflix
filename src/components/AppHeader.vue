@@ -24,6 +24,7 @@
               store.results.push({
                 title : film.title,
                 originalTitle : film.original_title,
+                overview : film.overview,
                 language : film.original_language,
                 rateing : Math.ceil(film.vote_average / 2),
                 backdropPath : film.backdrop_path,
@@ -44,6 +45,7 @@
               store.results.push({
                 title : tv.name,
                 originalTitle : tv.original_name,
+                overview : tv.overview,
                 language : tv.original_language,
                 rateing : Math.ceil(film.vote_average / 2),
                 backdropPath : tv.backdrop_path,
