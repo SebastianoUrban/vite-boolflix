@@ -1,7 +1,14 @@
 <template>
-  <header>
-    <input type="text" name="search" v-model="store.searchText">
-    <button @click="query()" >Cerca</button>
+  <header class="d-flex justify-content-center align-items-center">
+    <div class="wrapper d-flex justify-content-between align-items-center">
+      <div>
+        <img class="netflix-logo" src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
+      </div>
+      <div class="search d-flex justify-content-center align-items-center">
+        <input type="text" name="" v-model="store.searchText" class="me-3" >
+        <button @click="query()" >Cerca</button>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -69,5 +76,30 @@
 </script>
 
 <style lang="scss" scoped>
+  header {
+    height: 80px;
+    background-color: black;
+  }
 
+  div.search {
+    input {
+      border-radius: 10px;
+      border: 2px solid white;
+      height: 30px;
+      background-color: rgb(29, 29, 29);
+      color: white;
+      padding: 0 10px;
+    }
+    button {
+      border-radius: 10px;
+      border: 2px solid white;
+      height: 30px;
+      background-color: rgb(29, 29, 29);
+      color: white;
+      padding: 0 10px;
+    }
+  }
+  img.netflix-logo {
+    height: 40px;
+  }
 </style>

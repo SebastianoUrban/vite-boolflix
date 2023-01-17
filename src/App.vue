@@ -1,5 +1,5 @@
 <template>
-    <div class="m-5">
+    <div>
       <AppHeader/>
       <AppMain/>
     </div>
@@ -30,5 +30,9 @@
   @use './style/variables.scss' as * ;
   @use 'bootstrap/scss/bootstrap.scss' as *;
 
+  .wrapper {
+    width: 90%;
+    height: 100%;
+  }
 
 </style>
