@@ -1,6 +1,6 @@
 <template>
   <header class="d-flex justify-content-center align-items-center">
-    <div class="container-lg wrapper d-flex justify-content-between align-items-center">
+    <div class="container-fluid wrapper d-flex justify-content-between align-items-center">
       <div>
         <img class="netflix-logo" src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
       </div>
@@ -67,6 +67,7 @@
       },
       query () {
         store.results = [];
+        store.searchMode = true;
         this.queryMovie();
         this.queryTv();
         store.searchText = '';

@@ -2,15 +2,15 @@
   <div class="backdrop" :style="{ backgroundImage: 'url(' + backdropImage() + ')' }">
     <div class="wrapper">
       <ul class="list-unstyled p-3">
-        <li class="title"> <span class="card-sutitle">Titolo:v</span> {{ store.results[index].title }}</li>
-        <li class="original-title"><span class="card-sutitle">Titolo originale:</span> {{ store.results[index].originalTitle }}</li>
+        <li class="title"> <span class="card-sutitle">Titolo:v</span> {{ data[index].title }}</li>
+        <li class="original-title"><span class="card-sutitle">Titolo originale:</span> {{ data[index].originalTitle }}</li>
         <li class="rateing">
           <span class="card-sutitle">Voto medio:</span> 
-          <i class="fa-solid fa-star" v-for="i in store.results[index].rateing"></i>
-          <i class="fa-regular fa-star" v-for="i in (5 - store.results[index].rateing)"></i> 
+          <i class="fa-solid fa-star" v-for="i in data[index].rateing"></i>
+          <i class="fa-regular fa-star" v-for="i in (5 - data[index].rateing)"></i> 
         </li>
-        <li class="language"><span class="card-sutitle">Lingua originale:</span> {{ store.results[index].language }} <img class="flag" :src="getFlag(store.results[index].language)" alt=""></li>
-        <li class="overview"><span class="card-sutitle">Trama:</span> {{ store.results[index].overview }}</li>
+        <li class="language"><span class="card-sutitle">Lingua originale:</span> {{ data[index].language }} <img class="flag" :src="getFlag(data[index].language)" alt=""></li>
+        <li class="overview"><span class="card-sutitle">Trama:</span> {{ data[index].overview }}</li>
       </ul>
     </div>
   </div>
@@ -34,15 +34,16 @@
         }
       },
       backdropImage () {
-        if (store.results[this.index].backdropPath != null) { 
-          return 'https://image.tmdb.org/t/p/w780' + store.results[this.index].backdropPath
+        if (this.data[this.index].backdropPath != null) { 
+          return 'https://image.tmdb.org/t/p/w780' + this.data[this.index].backdropPath
         } else {
           return 'https://variety.com/wp-content/uploads/2013/10/film-placeholder.jpg'
         }
       }
     },
     props: {
-      index : Number
+      index : Number,
+      data : Array
     }
   }
 </script>

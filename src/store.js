@@ -2,7 +2,10 @@ import { reactive} from 'vue';
 
 export const store = reactive({
     results : [],
+    homeTopMovies : [],
+    homeTopTv : [],
     searchText : '',
+    searchMode : false,
     flags : {
         xx : '../src/assets/flags/4x3/xx.svg',
         de : '../src/assets/flags/4x3/de.svg',
