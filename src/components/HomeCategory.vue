@@ -2,10 +2,14 @@
   <div class="row header-results">
     <h1 class="mb-3">{{ title }}</h1>
   </div>
-  <div class="row body-results g-3 mb-3 flex-nowrap" >
-    <article v-for="item in listShow" :key="listShow.indexOf(item)" class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <SingleCard :index = "listShow.indexOf(item)" :data="listShow"/>
-    </article>
+  <div class="frame">
+    <div class="row body-results g-3 mb-4 flex-nowrap">
+      <article v-for="item in listShow" :key="listShow.indexOf(item)" class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <SingleCard :index = "listShow.indexOf(item)" :data="listShow"/>
+      </article>
+    </div>
+    <button class="next" @click="scroll_right()"><i class="fa-solid fa-arrow-right"></i></button>
+    <button class="prev" @click="scroll_left()"><i class="fa-solid fa-arrow-left"></i></button>
   </div>
 </template>
 
@@ -43,6 +47,14 @@
             console.log('ERROR');
             console.log(error);
           })
+      },
+      scroll_left() {
+        let content = document.querySelector(".body-results");
+        content.scrollLeft -= 300;
+      },
+      scroll_right() {
+        let content = document.querySelector(".body-results");
+        content.scrollLeft += 300;
       }
     },
     components: {
@@ -68,11 +80,32 @@
       font-size: 2rem;
     }
   }
+  .frame {
+    position: relative;
 
+  }
   .body-results {
-    overflow-x: auto;
+    overflow-y: auto;
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+  button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    font-size: 1.4rem;
+    top: 50%;
+    transform: translate(0, -20px);
+  }
+  button.prev {
+  }
+  button.next {
+    right: 0%;
+    
   }
 </style>
