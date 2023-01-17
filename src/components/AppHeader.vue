@@ -5,7 +5,7 @@
         <img class="netflix-logo" src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
       </div>
       <div class="search d-flex justify-content-center align-items-center">
-        <input type="text" name="" v-model="store.searchText" class="me-3" >
+        <input type="text" name="" v-model="store.searchText" class="me-3" @keyup.enter="query()">
         <button @click="query()" >Cerca</button>
       </div>
     </div>

@@ -2,8 +2,8 @@
   <div class="row header-results">
     <h1 class="mb-3">{{ title }}</h1>
   </div>
-  <div class="row body-results g-3 mb-3">
-    <article v-for="item in listShow" :key="listShow.indexOf(item)" class="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
+  <div class="row body-results g-3 mb-3 flex-nowrap" >
+    <article v-for="item in listShow" :key="listShow.indexOf(item)" class="col-12 col-md-6 col-lg-4 col-xl-3">
       <SingleCard :index = "listShow.indexOf(item)" :data="listShow"/>
     </article>
   </div>
@@ -16,6 +16,7 @@
 
   export default {
     data() {
+      const vm = this;
       return {
         store,
         listShow : []
@@ -65,6 +66,13 @@
     }
     & i {
       font-size: 2rem;
+    }
+  }
+
+  .body-results {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 </style>

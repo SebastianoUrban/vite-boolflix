@@ -54,10 +54,14 @@
     aspect-ratio: 16/9;
     background-size: cover;
     color: white;
-    overflow: hidden;
+    
     .wrapper {
       height: 100%;
       width: 100%;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
       & ul{
         display: none;
       }

@@ -1,6 +1,8 @@
 <template>
-  <HomeCategory :title="'Filem Super'" :APIuri="'https://api.themoviedb.org/3/movie/top_rated?api_key=fd496a5d9593ae9ca1b97ac4b05d38cf&language=it-IT'"/>
-  <HomeCategory :title="'Serie Super'" :APIuri="'https://api.themoviedb.org/3/tv/top_rated?api_key=fd496a5d9593ae9ca1b97ac4b05d38cf&language=it-IT'"/>
+  <HomeCategory :title="'Filem più votati'" :APIuri="'https://api.themoviedb.org/3/movie/top_rated?api_key=fd496a5d9593ae9ca1b97ac4b05d38cf&language=it-IT'"/>
+  <HomeCategory :title="'Serie Tv più votate'" :APIuri="'https://api.themoviedb.org/3/tv/top_rated?api_key=fd496a5d9593ae9ca1b97ac4b05d38cf&language=it-IT'"/>
+  <HomeCategory :title="'Filem popolari'" :APIuri="'https://api.themoviedb.org/3/movie/popular?api_key=fd496a5d9593ae9ca1b97ac4b05d38cf&language=it-IT'"/>
+  <HomeCategory :title="'Serie Tv popolari'" :APIuri="'https://api.themoviedb.org/3/tv/popular?api_key=fd496a5d9593ae9ca1b97ac4b05d38cf&language=it-IT'"/>
 </template>
 
 <script>
