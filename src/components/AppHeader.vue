@@ -1,6 +1,6 @@
 <template>
   <header class="d-flex justify-content-center align-items-center">
-    <div class="wrapper d-flex justify-content-between align-items-center">
+    <div class="container-lg wrapper d-flex justify-content-between align-items-center">
       <div>
         <img class="netflix-logo" src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
       </div>
@@ -54,7 +54,7 @@
                 originalTitle : tv.original_name,
                 overview : tv.overview,
                 language : tv.original_language,
-                rateing : Math.ceil(film.vote_average / 2),
+                rateing : Math.ceil(tv.vote_average / 2),
                 backdropPath : tv.backdrop_path,
                 type : 'tv'
               });

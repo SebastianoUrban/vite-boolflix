@@ -4,13 +4,13 @@
       <ul class="list-unstyled p-3">
         <li class="title"> <span class="card-sutitle">Titolo:v</span> {{ store.results[index].title }}</li>
         <li class="original-title"><span class="card-sutitle">Titolo originale:</span> {{ store.results[index].originalTitle }}</li>
-        <li class="overview"><span class="card-sutitle">Trama:</span> {{ store.results[index].overview }}</li>
-        <li class="language"><span class="card-sutitle">Lingua originale:</span> {{ store.results[index].language }} <img class="flag" :src="getFlag(store.results[index].language)" alt=""></li>
         <li class="rateing">
           <span class="card-sutitle">Voto medio:</span> 
           <i class="fa-solid fa-star" v-for="i in store.results[index].rateing"></i>
           <i class="fa-regular fa-star" v-for="i in (5 - store.results[index].rateing)"></i> 
         </li>
+        <li class="language"><span class="card-sutitle">Lingua originale:</span> {{ store.results[index].language }} <img class="flag" :src="getFlag(store.results[index].language)" alt=""></li>
+        <li class="overview"><span class="card-sutitle">Trama:</span> {{ store.results[index].overview }}</li>
       </ul>
     </div>
   </div>
@@ -49,8 +49,8 @@
 
 <style lang="scss" scoped>
   div.backdrop {
-    width: 450px;
-    height: 254px;
+    width: 100%;
+    aspect-ratio: 16/9;
     background-size: cover;
     color: white;
     overflow: hidden;
@@ -61,7 +61,7 @@
         display: none;
       }
       &:hover {
-        background-color: rgba($color: #000000, $alpha: 0.75);
+        background-color: rgba($color: #000000, $alpha: 0.65);
         & ul{
           display: block;
         }
